@@ -33,7 +33,7 @@
                     </span>
                 </button>
 
-                
+
             </div>
 
             <div class="d-flex align-items-center">
@@ -339,12 +339,9 @@
                                 class="badge bg-success-subtle text-success mt-1 float-end">New</span><i
                                 class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i> <span
                                 class="align-middle">Settings</span></a>
-                        <a class="dropdown-item" href="auth-lockscreen-basic.html"><i
-                                class="mdi mdi-lock text-muted fs-16 align-middle me-1"></i> <span
-                                class="align-middle">Lock screen</span></a>
-                        <a class="dropdown-item" href="auth-logout-basic.html"><i
-                                class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
-                                class="align-middle" data-key="t-logout">Logout</span></a>
+
+                        <!-- logout -->
+                        <livewire:auth.logout />
                     </div>
                 </div>
             </div>

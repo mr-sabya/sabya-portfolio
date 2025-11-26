@@ -1,5 +1,5 @@
 <!-- tmp skill area start -->
-<div class="tmp-skill-area tmp-section-gapTop">
+<div class="tmp-skill-area {{ $className }}">
     <div class="container">
         <div class="row g-5">
             <div class="col-lg-6">

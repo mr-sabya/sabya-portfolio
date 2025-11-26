@@ -1,85 +1,96 @@
 <section class="latest-service-area {{ $pageName == 'home'? 'tmp-section-gapTop' : 'tmp-section-gap' }}">
+
+    {{-- =============================================
+         LAYOUT 1: HOME PAGE
+         (Left: 3 Items List, Right: Big Image)
+         ============================================= --}}
     @if($pageName === 'home')
-    <!-- Tpm Latest Service Area Start -->
     <div class="container">
+        <!-- Section Header -->
         <div class="section-head mb--60">
             <div class="section-sub-title center-title tmp-scroll-trigger tmp-fade-in animation-order-1">
-                <span class="subtitle">Latest Service</span>
+                <span class="subtitle">{{ $sectionInfo->sub_title ?? 'Latest Service' }}</span>
             </div>
-            <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2">Inspiring The World One Project</h2>
-            <p class="description section-sm tmp-scroll-trigger tmp-fade-in animation-order-3"> Business consulting consultants provide expert advice and guida
-                businesses to help them improve their performance, efficiency, and organizational </p>
+            <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2">
+                {{ $sectionInfo->title ?? 'Inspiring The World One Project' }}
+            </h2>
+            <p class="description section-sm tmp-scroll-trigger tmp-fade-in animation-order-3">
+                {{ $sectionInfo->description ?? 'We provide expert advice...' }}
+            </p>
         </div>
+
         <div class="row">
+            <!-- Left Column: Top 3 Services -->
             <div class="col-lg-6">
-                <div class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-1">
-                    <h2 class="service-card-num"><span>01.</span>A Portfolio of Creativity</h2>
-                    <p class="service-para">Business consulting consultants provide expert advice and guida the a
-                        businesses to help theme their performance efficiency</p>
+                @foreach($services as $service)
+                <div class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-{{ $loop->iteration }}">
+                    <h2 class="service-card-num">
+                        {{-- Generate 01., 02., 03. --}}
+                        <span>{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}.</span>
+                        {{ $service->title }}
+                    </h2>
+                    <p class="service-para">
+                        {{ $service->description ?? $service->short_description }}
+                    </p>
                 </div>
-                <div class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-2">
-                    <h2 class="service-card-num"><span>02.</span>My Portfolio of Innovation</h2>
-                    <p class="service-para">My work is driven by the belief that thoughtful design and strategic planning can empower brands, transform businesses</p>
-                </div>
-                <div class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-3">
-                    <h2 class="service-card-num"><span>03.</span>A Showcase of My Projects</h2>
-                    <p class="service-para">In this portfolio, you’ll find a curated selection of projects that highlight my skills in [Main Areas, e.g., responsive web design</p>
-                </div>
+                @endforeach
             </div>
+
+            <!-- Right Column: Featured Image -->
             <div class="col-lg-6">
                 <div class="service-card-user-image">
-                    <img class="tmp-scroll-trigger tmp-zoom-in animation-order-1" src="{{ url('assets/frontend/images/services/latest-services-user-image-two.png') }}" alt="latest-user-image">
+                    @php
+                    $imagePath = !empty($sectionInfo->featured_image)
+                    ? asset('storage/' . $sectionInfo->featured_image)
+                    : url('assets/frontend/images/services/latest-services-user-image-two.png');
+                    @endphp
+                    <img class="tmp-scroll-trigger tmp-zoom-in animation-order-1"
+                        src="{{ $imagePath }}"
+                        alt="latest-user-image">
                 </div>
             </div>
         </div>
     </div>
-    <!-- Tpm Latest Service Area End -->
+
+    {{-- =============================================
+         LAYOUT 2: SERVICE PAGE
+         (Two Columns of Services: Left & Right)
+         ============================================= --}}
     @elseif($pageName === 'service')
-    <!-- Latest Service Area Start -->
     <div class="container">
         <div class="row">
+            {{--
+               Logic: Split services into 2 evenly balanced collections (Left Col / Right Col) 
+               Using Laravel's split(2) method.
+            --}}
+            @foreach($services->split(2) as $chunk)
             <div class="col-lg-6 col-sm-6">
-                <a href="service-details.html"
-                    class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-1">
-                    <h2 class="service-card-num"><span>01.</span>Success Architects</h2>
-                    <p class="service-para">Business consulting consultants provide expert advice and guida the a
-                        businesses to help theme their performance efficiency</p>
+                @foreach($chunk as $key => $service)
+                <a href="{{ $service->details_url ?? 'service-details.html' }}"
+                    class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-{{ $loop->iteration }}">
+                    <h2 class="service-card-num">
+                        {{--
+                                   Numbering Logic:
+                                   Since $key is the index from the original collection (0,1,2,3,4,5),
+                                   we just add 1 to get continuous numbering (01, 02, ... 06) across columns.
+                                --}}
+                        <span>{{ str_pad($key + 1, 2, '0', STR_PAD_LEFT) }}.</span>
+                        {{ $service->title }}
+                    </h2>
+                    <p class="service-para">
+                        {{ $service->description ?? 'No description available.' }}
+                    </p>
                 </a>
-                <a href="service-details.html"
-                    class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-2">
-                    <h2 class="service-card-num"><span>02.</span>Success Architects</h2>
-                    <p class="service-para">App consulting consultants provide expert advice and guida the a
-                        businesses to help theme their performance efficiency</p>
-                </a>
-                <a href="service-details.html"
-                    class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-3">
-                    <h2 class="service-card-num"><span>03.</span>Success Architects</h2>
-                    <p class="service-para">I specialize in creating solutions that are not only visually engaging but
-                        also align with business goals. From [list services, e.g., branding,</p>
-                </a>
+                @endforeach
             </div>
-            <div class="col-lg-6 col-sm-6">
-                <a href="service-details.html"
-                    class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-4">
-                    <h2 class="service-card-num"><span>04.</span>Ui/visual Design</h2>
-                    <p class="service-para">I’m proud of what I’ve accomplished and excited to share my journey with
-                        you. I’m proud of what I’ve accomplished and excited to.</p>
-                </a>
-                <a href="service-details.html"
-                    class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-5">
-                    <h2 class="service-card-num"><span>05.</span>Branding Design</h2>
-                    <p class="service-para">Interested in working together? Let’s bring your ideas to life! Contact me,
-                        and let’s start building something amazing.</p>
-                </a>
-                <a href="service-details.html"
-                    class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-6">
-                    <h2 class="service-card-num"><span>06.</span>Motion Design</h2>
-                    <p class="service-para">Feel free to browse through my recent projects. Each one showcases my
-                        approach and dedication to detail, creativity, and.</p>
-                </a>
+            @endforeach
+
+            @if($services->isEmpty())
+            <div class="col-12 text-center">
+                <p>No services found.</p>
             </div>
+            @endif
         </div>
     </div>
-    <!-- Latest Service Area End -->
     @endif
 </section>
