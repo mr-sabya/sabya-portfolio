@@ -20,8 +20,5 @@ Route::get('/blog', [App\Http\Controllers\Frontend\BlogController::class, 'blog'
 Route::get('/contact', [App\Http\Controllers\Frontend\ContactController::class, 'index'])->name('contact');
 
 
-// admin routes
-Route::prefix('admin')->group(function () {
-    // dashboard route
-    Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
-}); 
+// login
+Route::get('/login', [App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
