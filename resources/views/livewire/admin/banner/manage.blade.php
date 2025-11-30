@@ -1,9 +1,7 @@
 <div class="row">
     <div class="col-12">
         <div class="card shadow-sm">
-            <div class="card-header bg-primary text-white">
-                <h5 class="mb-0 text-white">Manage Hero Banner</h5>
-            </div>
+           
             <div class="card-body">
 
                 <form wire:submit.prevent="updateBanner" enctype="multipart/form-data">

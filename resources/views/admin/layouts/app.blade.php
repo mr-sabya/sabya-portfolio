@@ -23,6 +23,7 @@
     <link href="{{ asset('assets/backend/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
     <link href="{{ asset('assets/backend/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/frontend/css/vendor/fontawesome.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
     <link href="{{ asset('assets/backend/css/app.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- custom Css-->

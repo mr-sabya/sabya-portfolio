@@ -32,7 +32,7 @@
 
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link menu-link active">
+                    <a href="{{ route('admin.dashboard') }}" class="nav-link menu-link {{ Route::is('admin.dashboard') ? 'active' : '' }}" wire:navigate>
                         <i class="bi bi-speedometer2"></i> <span data-key="t-dashboard">Dashboard</span>
                     </a>
                 </li>
@@ -44,20 +44,19 @@
                 <li class="nav-item">
                     <a class="nav-link menu-link {{ Route::is('admin.website.*') ? 'collapsed active' : '' }}" href="#websiteManage" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarPages">
-                        <i class="bi bi-journal-medical"></i> <span data-key="t-pages">Website</span>
+                        <i class="bi bi-journal-medical"></i> <span data-key="t-webiste">Website</span>
                     </a>
                     <div class="collapse menu-dropdown {{ Route::is('admin.website.*') ? 'show' : '' }}" id="websiteManage">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('admin.website.hero-banner.index') }}" class="nav-link {{ Route::is('admin.website.hero-banner.index') ? 'active' : '' }}" data-key="t-starter"> Hero Banner </a>
+                                <a href="{{ route('admin.website.hero-banner.index') }}" class="nav-link {{ Route::is('admin.website.hero-banner.index') ? 'active' : '' }}" data-key="t-hero-banner" wire:navigate> Hero Banner </a>
                             </li>
                             
                             <li class="nav-item">
-                                <a href="pages-team.html" class="nav-link" data-key="t-team"> Team </a>
+                                <a href="{{ route('admin.website.service-section.index') }}" class="nav-link {{ Route::is('admin.website.service-section.index') ? 'active' : '' }}" data-key="t-service-section" wire:navigate> Service Section </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages-timeline.html" class="nav-link" data-key="t-timeline"> Timeline
-                                </a>
+                                <a href="{{ route('admin.website.service.index') }}" class="nav-link {{ Route::is('admin.website.service.index') ? 'active' : '' }}" data-key="t-services" wire:navigate> Services </a>
                             </li>
                             <li class="nav-item">
                                 <a href="pages-faqs.html" class="nav-link" data-key="t-faqs"> FAQs </a>
