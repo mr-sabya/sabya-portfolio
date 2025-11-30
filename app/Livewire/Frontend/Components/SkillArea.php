@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Frontend\Components;
 
+use App\Models\SkillCategory;
 use Livewire\Component;
 
 class SkillArea extends Component
@@ -13,8 +14,16 @@ class SkillArea extends Component
         $this->className = $className;
     }
 
+
     public function render()
     {
-        return view('livewire.frontend.components.skill-area');
+        // Fetch categories that are active, and eagerly load their active skills
+        $skillCategories = SkillCategory::where('status', true)
+            ->with(['skills' => function ($query) {
+                $query->where('status', true)->orderBy('sort_order', 'asc');
+            }])
+            ->orderBy('sort_order', 'asc')
+            ->get();
+        return view('livewire.frontend.components.skill-area', compact('skillCategories'));
     }
 }

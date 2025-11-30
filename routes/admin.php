@@ -16,5 +16,8 @@ Route::middleware('auth', 'is_admin')->group(function () {
 
         // Services Management
         Route::get('/services', [App\Http\Controllers\Admin\ServiceController::class, 'index'])->name('service.index');
+
+        // Skill Management
+        Route::get('/skills', [App\Http\Controllers\Admin\SkillController::class, 'index'])->name('skill.index');
     });
 });

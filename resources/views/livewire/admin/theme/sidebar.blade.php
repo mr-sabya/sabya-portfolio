@@ -59,28 +59,9 @@
                                 <a href="{{ route('admin.website.service.index') }}" class="nav-link {{ Route::is('admin.website.service.index') ? 'active' : '' }}" data-key="t-services" wire:navigate> Services </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages-faqs.html" class="nav-link" data-key="t-faqs"> FAQs </a>
+                                <a href="{{ route('admin.website.skill.index') }}" class="nav-link {{ Route::is('admin.website.skill.index') ? 'active' : '' }}" data-key="t-skills" wire:navigate> Skills </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="pages-pricing.html" class="nav-link" data-key="t-pricing"> Pricing </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages-maintenance.html" class="nav-link" data-key="t-maintenance">
-                                    Maintenance
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages-coming-soon.html" class="nav-link" data-key="t-coming-soon">
-                                    Coming Soon
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages-sitemap.html" class="nav-link" data-key="t-sitemap"> Sitemap </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages-search-results.html" class="nav-link"
-                                    data-key="t-search-results"> Search Results </a>
-                            </li>
+                            
                         </ul>
                     </div>
                 </li>
