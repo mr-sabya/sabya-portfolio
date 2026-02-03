@@ -61,6 +61,17 @@
                             <li class="nav-item">
                                 <a href="{{ route('admin.website.skill.index') }}" class="nav-link {{ Route::is('admin.website.skill.index') ? 'active' : '' }}" data-key="t-skills" wire:navigate> Skills </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.website.education.index') }}" class="nav-link {{ Route::is('admin.website.education.index') ? 'active' : '' }}" data-key="t-education" wire:navigate> Education </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.website.experience.index') }}" class="nav-link {{ Route::is('admin.website.experience.index') ? 'active' : '' }}" data-key="t-experience" wire:navigate> Experience </a>
+                            </li>
+
+                            <!-- Experience Section -->
+                            <li class="nav-item">
+                                <a href="{{ route('admin.website.experience-section.index') }}" class="nav-link {{ Route::is('admin.website.experience-section.index') ? 'active' : '' }}" data-key="t-experience-section" wire:navigate> Experience Section </a>
+                            </li>
                             
                         </ul>
                     </div>

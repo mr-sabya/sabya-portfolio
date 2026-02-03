@@ -19,5 +19,14 @@ Route::middleware('auth', 'is_admin')->group(function () {
 
         // Skill Management
         Route::get('/skills', [App\Http\Controllers\Admin\SkillController::class, 'index'])->name('skill.index');
+
+        // Education Management
+        Route::get('/education', [App\Http\Controllers\Admin\EducationExperienceController::class, 'educationIndex'])->name('education.index');
+
+        // Experience Management
+        Route::get('/experience', [App\Http\Controllers\Admin\EducationExperienceController::class, 'experienceIndex'])->name('experience.index');
+
+        // Experience Section Management
+        Route::get('/experience-section', [App\Http\Controllers\Admin\EducationExperienceController::class, 'experienceSectionIndex'])->name('experience-section.index');
     });
 });
