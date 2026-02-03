@@ -43,5 +43,8 @@ Route::middleware('auth', 'is_admin')->group(function () {
 
         // Create Project
         Route::get('/create', [App\Http\Controllers\Admin\ProjectController::class, 'create'])->name('create');
+
+        // Edit Project
+        Route::get('/edit/{id}', [App\Http\Controllers\Admin\ProjectController::class, 'edit'])->name('edit');
     });
 });

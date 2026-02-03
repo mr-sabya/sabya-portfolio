@@ -42,11 +42,10 @@
                                     </span>
                                 </td>
                                 <td class="text-end">
-                                    <button wire:click="$dispatchTo('admin.projects.manage', 'load-project', { id: {{ $p->id }} })"
-                                        data-bs-toggle="modal" data-bs-target="#projectModal"
+                                    <a href="{{ route('admin.projects.edit', $p->id) }}" wire:navigate
                                         class="btn btn-sm btn-soft-primary me-1">
                                         <i class="fas fa-edit"></i>
-                                    </button>
+                                    </a>
                                     <button wire:confirm="Are you sure?" wire:click="delete({{ $p->id }})" class="btn btn-sm btn-soft-danger">
                                         <i class="fas fa-trash"></i>
                                     </button>

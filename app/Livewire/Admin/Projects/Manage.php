@@ -10,20 +10,25 @@ use App\Models\Technology;
 use App\Models\ProjectImage;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Livewire\Attributes\On;
 
 class Manage extends Component
 {
     use WithFileUploads;
 
+    // Project Properties
     public $project_id, $partner_id, $title, $description_one, $description_two;
     public $mini_title, $mini_description, $author_name = 'Admin', $project_date;
     public $tags, $sort_order = 0, $status = true, $progress = 'in-progress';
 
+    // File Properties
     public $thumbnail, $current_thumbnail;
     public $selected_techs = [];
     public $gallery_images = [];
 
+    // UI State
     public $isEditMode = false;
+    public $activeTab = 'details'; // details, tasks, files
 
     public function mount($id = null)
     {
@@ -43,12 +48,18 @@ class Manage extends Component
             $this->tags             = $project->tags;
             $this->sort_order       = $project->sort_order;
             $this->status           = (bool)$project->status;
-            $this->progress         = $project->progress;
+            // Ensure 'progress' exists in your migration/model
+            $this->progress         = $project->progress ?? 'in-progress';
             $this->current_thumbnail = $project->thumbnail;
             $this->selected_techs   = $project->technologies->pluck('id')->toArray();
         } else {
             $this->project_date = now()->format('Y-m-d');
         }
+    }
+
+    public function setTab($tab)
+    {
+        $this->activeTab = $tab;
     }
 
     public function store()
@@ -107,12 +118,25 @@ class Manage extends Component
         }
     }
 
+    #[On('task-updated')]
+    public function refreshProjectData()
+    {
+        // This method can be empty. 
+        // Just by calling it, Livewire triggers a re-render of this component.
+        // The render() method will run, recalculating $completion.
+    }
+
     public function render()
     {
+        // Get project for gallery/completion if in edit mode
+        $project = $this->project_id ? Project::with('gallery')->find($this->project_id) : null;
+
         return view('livewire.admin.projects.manage', [
             'partners' => Partner::all(),
             'technologies' => Technology::all(),
-            'current_gallery' => $this->project_id ? Project::find($this->project_id)->gallery : []
+            'project' => $project,
+            // Uses the completion attribute we added to the model earlier
+            'completion' => $project ? $project->completion_percentage : 0
         ]);
     }
 }
