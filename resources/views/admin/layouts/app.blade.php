@@ -24,6 +24,9 @@
     <!-- Icons Css -->
     <link href="{{ asset('assets/backend/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/frontend/css/vendor/fontawesome.css') }}" rel="stylesheet" type="text/css" />
+
+    <!-- Include stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
     <!-- App Css-->
     <link href="{{ asset('assets/backend/css/app.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
@@ -147,6 +150,9 @@
 
     <!--Swiper slider js-->
     <script data-navigate-once src="{{ asset('assets/backend/libs/swiper/swiper-bundle.min.js') }}"></script>
+
+    <!-- Include the Quill library -->
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
 
     <!-- Dashboard init -->
     <script data-navigate-once src="{{ asset('assets/backend/js/pages/dashboard-ecommerce.init.js') }}"></script>

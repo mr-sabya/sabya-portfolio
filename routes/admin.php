@@ -28,5 +28,20 @@ Route::middleware('auth', 'is_admin')->group(function () {
 
         // Experience Section Management
         Route::get('/experience-section', [App\Http\Controllers\Admin\EducationExperienceController::class, 'experienceSectionIndex'])->name('experience-section.index');
+
+        // Partner Management
+        Route::get('/partners', [App\Http\Controllers\Admin\PartnerController::class, 'index'])->name('partner.index');
+    });
+
+    // Project group
+    Route::prefix('projects')->name('projects.')->group(function () {
+        // Technology Management
+        Route::get('/technologies', [App\Http\Controllers\Admin\TechnologyController::class, 'index'])->name('technology.index');
+
+        // Project Management
+        Route::get('/', [App\Http\Controllers\Admin\ProjectController::class, 'index'])->name('index');
+
+        // Create Project
+        Route::get('/create', [App\Http\Controllers\Admin\ProjectController::class, 'create'])->name('create');
     });
 });

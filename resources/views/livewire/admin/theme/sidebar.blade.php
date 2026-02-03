@@ -72,10 +72,37 @@
                             <li class="nav-item">
                                 <a href="{{ route('admin.website.experience-section.index') }}" class="nav-link {{ Route::is('admin.website.experience-section.index') ? 'active' : '' }}" data-key="t-experience-section" wire:navigate> Experience Section </a>
                             </li>
+
+                            <!-- Partner Section -->
+                            <li class="nav-item">
+                                <a href="{{ route('admin.website.partner.index') }}" class="nav-link {{ Route::is('admin.website.partner.index') ? 'active' : '' }}" data-key="t-partner" wire:navigate> Partner </a>
+                            </li>
+
                             
                         </ul>
                     </div>
                 </li>
+
+                <!-- project management li group -->
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ Route::is('admin.projects.*') ? 'collapsed active' : '' }}" href="#projectManage" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarPages">
+                        <i class="bi bi-briefcase"></i> <span data-key="t-projects">Projects</span>
+                    </a>
+                    <div class="collapse menu-dropdown {{ Route::is('admin.projects.*') ? 'show' : '' }}" id="projectManage">
+                        <ul class="nav nav-sm flex-column">
+                            
+                            <li class="nav-item">
+                                <a href="{{ route('admin.projects.technology.index') }}" class="nav-link {{ Route::is('admin.projects.technology.*') ? 'active' : '' }}" data-key="t-technologies" wire:navigate> Technologies </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('admin.projects.index') }}" class="nav-link {{ Route::is('admin.projects.*') ? 'active' : '' }}" data-key="t-projects" wire:navigate> Projects </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                 
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="widgets.html">
