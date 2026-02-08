@@ -112,7 +112,9 @@
                     <div class="collapse menu-dropdown {{ Route::is('admin.posts.*') ? 'show' : '' }}" id="postManage">
                         <ul class="nav nav-sm flex-column">
                             
-                            
+                            <li class="nav-item">
+                                <a href="{{ route('admin.posts.category.index') }}" class="nav-link {{ Route::is('admin.posts.category.*') ? 'active' : '' }}" data-key="t-categories" wire:navigate> Categories </a>
+                            </li>
 
                             <li class="nav-item">
                                 <a href="{{ route('admin.posts.index') }}" class="nav-link {{ Route::is('admin.posts.*') ? 'active' : '' }}" data-key="t-posts" wire:navigate> Posts </a>

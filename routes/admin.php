@@ -58,5 +58,8 @@ Route::middleware('auth', 'is_admin')->group(function () {
 
         // Edit Post
         Route::get('/edit/{id}', [App\Http\Controllers\Admin\PostController::class, 'edit'])->name('edit');
+
+        // category management
+        Route::get('/categories', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('category.index');
     });
 });

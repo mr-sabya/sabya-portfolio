@@ -5,68 +5,51 @@
             <div class="section-sub-title center-title tmp-scroll-trigger tmp-fade-in animation-order-1">
                 <span class="subtitle">Blog and news</span>
             </div>
-            <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2">Elevating Personal Branding the <br> through Powerful Portfolios</h2>
+            <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2">Elevating Personal Branding <br> through Powerful Portfolios</h2>
         </div>
-        <div class="row">
+        <div class="row g-5">
+            @forelse($posts as $post)
             <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="blog-card tmp-hover-link tmp-scroll-trigger tmp-fade-in animation-order-1">
+                <div class="blog-card tmp-hover-link tmp-scroll-trigger tmp-fade-in animation-order-{{ $loop->iteration }}">
                     <div class="img-box">
-                        <a href="blog-details.html">
-                            <img class="img-primary hidden-on-mobile" src="{{ url('assets/frontend/images/blog/blog-img-4.jpg') }}" alt="Blog Thumbnail">
-                            <img class="img-secondary" src="{{ url('assets/frontend/images/blog/blog-img-4.jpg') }}" alt="BLog Thumbnail">
+                        {{-- Route assumes you have a named route: blog.details --}}
+                        <a href="{{ route('blog.details', $post->slug) }}">
+                            @if($post->thumbnail)
+                            <img class="img-primary hidden-on-mobile" src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}">
+                            <img class="img-secondary" src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}">
+                            @else
+                            <img class="img-primary" src="{{ url('assets/frontend/images/blog/blog-img-4.jpg') }}" alt="Placeholder">
+                            @endif
                         </a>
                         <ul class="blog-tags">
-                            <li><span class="tag-icon"><i class="fa-regular fa-user"></i></span>Mesbah</li>
-                            <li><span class="tag-icon"><i class="fa-solid fa-calendar-days"></i></span>April 10</li>
+                            <li>
+                                <span class="tag-icon"><i class="fa-regular fa-user"></i></span>
+                                {{ $post->user->name ?? 'Admin' }}
+                            </li>
+                            <li>
+                                <span class="tag-icon"><i class="fa-solid fa-calendar-days"></i></span>
+                                {{ $post->created_at->format('M d') }}
+                            </li>
                         </ul>
                     </div>
                     <div class="blog-content-wrap">
-                        <h3 class="blog-title v2"><a class="link" href="blog-details.html">Let’s bring your ideas to life! Contact me, and let’s</a></h3>
-                        <a href="blog-details.html" class="read-more-btn v2">Read More <span
-                                class="read-more-icon"><i class="fa-solid fa-angle-right"></i></span></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="blog-card tmp-hover-link tmp-scroll-trigger tmp-fade-in animation-order-2">
-                    <div class="img-box">
-                        <a href="blog-details.html">
-                            <img class="img-primary hidden-on-mobile" src="{{ url('assets/frontend/images/blog/blog-img-5.jpg') }}" alt="Blog Thumbnail">
-                            <img class="img-secondary" src="{{ url('assets/frontend/images/blog/blog-img-5.jpg') }}" alt="BLog Thumbnail">
+                        <h3 class="blog-title v2">
+                            <a class="link" href="{{ route('blog.details', $post->slug) }}">
+                                {{ Str::limit($post->title, 60) }}
+                            </a>
+                        </h3>
+                        <a href="{{ route('blog.details', $post->slug) }}" class="read-more-btn v2">
+                            Read More
+                            <span class="read-more-icon"><i class="fa-solid fa-angle-right"></i></span>
                         </a>
-                        <ul class="blog-tags">
-                            <li><span class="tag-icon"><i class="fa-regular fa-user"></i></span>Mesbah</li>
-                            <li><span class="tag-icon"><i class="fa-solid fa-calendar-days"></i></span>April 10</li>
-                        </ul>
-                    </div>
-                    <div class="blog-content-wrap">
-                        <h3 class="blog-title v2"><a class="link" href="blog-details.html">Inspiring the World, One Project at a
-                                Time for the
-                                man</a></h3>
-                        <a href="blog-details.html" class="read-more-btn v2">Read More <span
-                                class="read-more-icon"><i class="fa-solid fa-angle-right"></i></span></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="blog-card tmp-hover-link tmp-scroll-trigger tmp-fade-in animation-order-3">
-                    <div class="img-box">
-                        <a href="blog-details.html">
-                            <img class="img-primary hidden-on-mobile" src="{{ url('assets/frontend/images/blog/blog-img-6.jpg') }}" alt="Blog Thumbnail">
-                            <img class="img-secondary" src="{{ url('assets/frontend/images/blog/blog-img-6.jpg') }}" alt="BLog Thumbnail">
-                        </a>
-                        <ul class="blog-tags">
-                            <li><span class="tag-icon"><i class="fa-regular fa-user"></i></span>Mesbah</li>
-                            <li><span class="tag-icon"><i class="fa-solid fa-calendar-days"></i></span>April 10</li>
-                        </ul>
-                    </div>
-                    <div class="blog-content-wrap">
-                        <h3 class="blog-title v2"><a class="link" href="blog-details.html">Each one showcases my approach and dedication man</a></h3>
-                        <a href="blog-details.html" class="read-more-btn v2">Read More <span
-                                class="read-more-icon"><i class="fa-solid fa-angle-right"></i></span></a>
-                    </div>
-                </div>
+            @empty
+            <div class="col-12 text-center">
+                <p class="text-muted">No blog posts found.</p>
             </div>
+            @endforelse
         </div>
     </div>
 </section>
