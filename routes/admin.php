@@ -47,4 +47,16 @@ Route::middleware('auth', 'is_admin')->group(function () {
         // Edit Project
         Route::get('/edit/{id}', [App\Http\Controllers\Admin\ProjectController::class, 'edit'])->name('edit');
     });
+
+    // post
+    Route::prefix('posts')->name('posts.')->group(function () {
+        // Post Management
+        Route::get('/', [App\Http\Controllers\Admin\PostController::class, 'index'])->name('index');
+
+        // Create Post
+        Route::get('/create', [App\Http\Controllers\Admin\PostController::class, 'create'])->name('create');
+
+        // Edit Post
+        Route::get('/edit/{id}', [App\Http\Controllers\Admin\PostController::class, 'edit'])->name('edit');
+    });
 });

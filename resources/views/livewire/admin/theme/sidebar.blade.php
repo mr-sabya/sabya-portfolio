@@ -102,7 +102,25 @@
                         </ul>
                     </div>
                 </li>
-                 
+
+                <!-- post -->
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ Route::is('admin.posts.*') ? 'collapsed active' : '' }}" href="#postManage" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarPages">
+                        <i class="bi bi-briefcase"></i> <span data-key="t-posts">Posts</span>
+                    </a>
+                    <div class="collapse menu-dropdown {{ Route::is('admin.posts.*') ? 'show' : '' }}" id="postManage">
+                        <ul class="nav nav-sm flex-column">
+                            
+                            
+
+                            <li class="nav-item">
+                                <a href="{{ route('admin.posts.index') }}" class="nav-link {{ Route::is('admin.posts.*') ? 'active' : '' }}" data-key="t-posts" wire:navigate> Posts </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="widgets.html">
