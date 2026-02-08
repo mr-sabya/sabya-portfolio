@@ -62,4 +62,16 @@ Route::middleware('auth', 'is_admin')->group(function () {
         // category management
         Route::get('/categories', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('category.index');
     });
+
+    // Pricing Plan
+    Route::prefix('pricing')->name('pricing.')->group(function () {
+        // Pricing Plan Management
+        Route::get('/', [App\Http\Controllers\Admin\PricingController::class, 'index'])->name('index');
+
+        // Create Pricing Plan
+        Route::get('/create', [App\Http\Controllers\Admin\PricingController::class, 'create'])->name('create');
+
+        // Edit Pricing Plan
+        Route::get('/edit/{id}', [App\Http\Controllers\Admin\PricingController::class, 'edit'])->name('edit');
+    });
 });

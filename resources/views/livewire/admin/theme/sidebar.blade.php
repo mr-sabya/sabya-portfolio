@@ -123,6 +123,13 @@
                     </div>
                 </li>
 
+                <!-- pricing -->
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ Route::is('admin.pricing.*') ? 'active' : '' }}" href="{{ route('admin.pricing.index') }}" wire:navigate>
+                        <i class="bi bi-currency-dollar"></i> <span data-key="t-pricing">Pricing</span>
+                    </a>
+                </li>
+
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="widgets.html">

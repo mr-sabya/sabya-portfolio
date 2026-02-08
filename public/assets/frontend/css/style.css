@@ -18666,12 +18666,12 @@ section.clients-testimonial-area {
 }
 .banner-three-main-wrapper .texts-one {
   position: absolute;
-  bottom: 5%;
-  left: 10%;
+  bottom: 10%;
+  left: 7%;
   -webkit-text-stroke: 1.25px var(--color-gray);
   color: transparent;
   font-family: var(--font-primary);
-  font-size: 212.855px;
+  font-size: 172px;
   font-weight: 700;
   line-height: 115%;
   z-index: -1;
@@ -18712,7 +18712,7 @@ section.clients-testimonial-area {
 .banner-three-main-wrapper .texts-two {
   position: absolute;
   bottom: 0;
-  left: 20%;
+  left: 13%;
   -webkit-text-stroke: 1.25px #FF494A;
   font-family: var(--font-primary);
   font-size: 150px;

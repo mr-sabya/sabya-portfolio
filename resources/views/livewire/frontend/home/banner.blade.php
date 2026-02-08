@@ -32,7 +32,7 @@
                     <div class="banner-right-content">
                         <div class="about-me tmp-scroll-trigger tmp-fade-in animation-order-1">
                             <h3 class="title">{{ $hero->about_title ?? 'About Me' }}</h3>
-                           
+
                             <p class="para tmp-title-split">
                                 {!! $hero->about_description ?? 'A personal <span>portfolio</span> is a collection of to your work, that is achievements, and a skills that <span>web design</span> highlights in your' !!}
                             </p>
@@ -52,16 +52,16 @@
                 </div>
             </div>
 
-            <div class="bg-benner-img-three">
+            <div class="bg-benner-img-three d-flex align-items-center justify-content-center">
                 @php
                 $heroImage = !empty($hero->hero_image)
                 ? asset('storage/' . $hero->hero_image)
-                : url('assets/frontend/images/banner/banner-user-image-three.png');
+                : url('assets/frontend/images/banner/banner-image.png');
                 @endphp
 
-                <img class="tmp-scroll-trigger tmp-zoom-in animation-order-2"
+                <img class="tmp-scroll-trigger tmp-zoom-in animation-order-2 opacity-75"
                     src="{{ $heroImage }}"
-                    alt="banner-img">
+                    alt="banner-img" style="width: 90%;">
             </div>
 
             <h2 class="texts-one up-down-2">{{ $hero->bg_text_1 ?? 'WEB DESIGN' }}</h2>
