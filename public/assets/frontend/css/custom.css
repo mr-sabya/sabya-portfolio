@@ -1,0 +1,96 @@
+/* Professional Dark Theme Typography */
+.dark-theme-content {
+    font-size: 18px;
+    line-height: 1.85;
+    /* Increased for better readability on dark backgrounds */
+    color: #cbd5e1;
+    /* Soft off-white (Slate 300) */
+    font-family: 'Inter', 'Poppins', sans-serif;
+}
+
+/* Paragraph spacing */
+.dark-theme-content p {
+    margin-bottom: 28px;
+    font-weight: 400;
+}
+
+/* Hyperlinks - High Visibility */
+.dark-theme-content a {
+    color: #38bdf8;
+    /* Vibrant Sky Blue */
+    text-decoration: none;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+.dark-theme-content a:hover {
+    color: #7dd3fc;
+    border-bottom-color: #7dd3fc;
+    background: rgba(56, 189, 248, 0.1);
+}
+
+/* Headings - Stand out in pure white */
+.dark-theme-content h3 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 50px;
+    margin-bottom: 24px;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+.dark-theme-content h4 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #f1f5f9;
+}
+
+/* Inline Code - The "Tutorial" look */
+.dark-theme-content code {
+    background-color: #1e293b;
+    /* Deep Navy/Slate */
+    color: #f472b6;
+    /* Soft Pink or use #38bdf8 for blue */
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-family: 'Fira Code', 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Bullet & Numbered Lists */
+.dark-theme-content ul,
+.dark-theme-content ol {
+    margin-bottom: 28px;
+    padding-left: 25px;
+}
+
+.dark-theme-content li {
+    margin-bottom: 12px;
+    position: relative;
+}
+
+/* Customizing Bullets to look modern */
+.dark-theme-content ul li::marker {
+    color: #38bdf8;
+}
+
+/* Pro-Tip / Note Boxes (Blockquotes) */
+.dark-theme-content blockquote {
+    border-left: 4px solid #38bdf8;
+    background: rgba(15, 23, 42, 0.5);
+    /* Semi-transparent navy */
+    padding: 24px 32px;
+    margin: 40px 0;
+    border-radius: 0 12px 12px 0;
+    font-style: italic;
+    color: #94a3b8;
+}
+
+.dark-theme-content strong {
+    color: #fff;
+    font-weight: 600;
+}

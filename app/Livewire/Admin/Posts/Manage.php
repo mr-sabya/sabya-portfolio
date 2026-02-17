@@ -138,7 +138,7 @@ class Manage extends Component
         }
 
         session()->flash('success', 'Blog post saved successfully!');
-        return redirect()->route('admin.posts.index');
+        return $this->redirect(route('admin.posts.edit', $post->id), navigate: true);
     }
 
     public function render()

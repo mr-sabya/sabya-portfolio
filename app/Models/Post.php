@@ -31,4 +31,10 @@ class Post extends Model
     {
         return $this->hasOne(SeoDetail::class);
     }
+
+    // app/Models/Post.php
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

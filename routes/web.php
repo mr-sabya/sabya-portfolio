@@ -19,6 +19,9 @@ Route::get('/projects/{slug}', [App\Http\Controllers\Frontend\ProjectController:
 // blog page
 Route::get('/blog', [App\Http\Controllers\Frontend\BlogController::class, 'blog'])->name('blog');
 
+// blog details page
+Route::get('/blog/{slug}', [App\Http\Controllers\Frontend\BlogController::class, 'show'])->name('blog.show');
+
 // contact page
 Route::get('/contact', [App\Http\Controllers\Frontend\ContactController::class, 'index'])->name('contact');
 

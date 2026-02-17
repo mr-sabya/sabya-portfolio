@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/vendor/bootstrap.min.css') }}">
     <!-- custom css -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/custom.css') }}">
     @livewireStyles
 </head>
 
