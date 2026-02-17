@@ -14,21 +14,30 @@ class Project extends Model
         'partner_id',
         'title',
         'slug',
-        'thumbnail',
+        'thumbnail',        // Existing
+        'project_image',    // New: Main feature image
+        'website_link',     // New: Live project URL
         'description_one',
         'description_two',
         'mini_title',
         'mini_description',
         'author_name',
-        'project_date',
+        'project_date',     // Existing (General display date)
+        'start_date',       // New: Actual start
+        'end_date',         // New: Actual completion
+        'client_deadline',  // New: Target date
+        'budget',           // New: Project value
         'tags',
         'sort_order',
         'status',
-        'progress' // Added to fix SQL error
+        'progress'
     ];
 
     protected $casts = [
         'project_date' => 'date',
+        'start_date' => 'date',
+        'end_date' => 'date',
+        'client_deadline' => 'date',
         'status' => 'boolean',
     ];
 
@@ -45,13 +54,15 @@ class Project extends Model
         });
 
         static::updating(function ($project) {
-            $project->slug = Str::slug($project->title);
+            // Only update slug if title changed
+            if ($project->isDirty('title')) {
+                $project->slug = Str::slug($project->title);
+            }
         });
     }
 
     /**
      * Accessor: Calculate Completion Percentage based on Tasks.
-     * Used in the Project Hub header progress bar.
      */
     public function getCompletionPercentageAttribute()
     {
@@ -68,49 +79,31 @@ class Project extends Model
     /*                                RELATIONSHIPS                               */
     /* -------------------------------------------------------------------------- */
 
-    /**
-     * Get the client (Partner) associated with the project.
-     */
     public function client(): BelongsTo
     {
         return $this->belongsTo(Partner::class, 'partner_id');
     }
 
-    /**
-     * Get the technologies used in this project.
-     */
     public function technologies(): BelongsToMany
     {
         return $this->belongsToMany(Technology::class, 'project_technology');
     }
 
-    /**
-     * Get the public gallery images (for frontend swiper).
-     */
     public function gallery(): HasMany
     {
         return $this->hasMany(ProjectImage::class);
     }
 
-    /**
-     * Get project milestones (Phases).
-     */
     public function milestones(): HasMany
     {
         return $this->hasMany(ProjectMilestone::class)->orderBy('due_date', 'asc');
     }
 
-    /**
-     * Get all tasks associated with the project.
-     */
     public function tasks(): HasMany
     {
         return $this->hasMany(ProjectTask::class);
     }
 
-    /**
-     * Get private documents and internal assets.
-     */
     public function documents(): HasMany
     {
         return $this->hasMany(ProjectFile::class);

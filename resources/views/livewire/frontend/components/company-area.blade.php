@@ -2,46 +2,32 @@
 <div class="our-supported-company-area tmp-section-gap">
     <div class="container">
         <div class="row justify-content-center">
+
+            @forelse($partners as $partner)
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
-                <div class="support-company-logo tmp-scroll-trigger tmp-fade-in animation-order-1">
-                    <img src="{{ url('assets/frontend/images/our-supported-company/company-logo-1.svg') }}" alt="Reeni - Personal Portfolio HTML Template">
+                <div class="support-company-logo tmp-scroll-trigger tmp-fade-in animation-order-{{ $loop->iteration }}">
+                    @if($partner->link)
+                    <a href="{{ $partner->link }}" target="_blank">
+                        @endif
+
+                        <img src="{{ asset('storage/' . $partner->logo) }}" alt="{{ $partner->name }}">
+
+                        @if($partner->link)
+                    </a>
+                    @endif
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
-                <div class="support-company-logo tmp-scroll-trigger tmp-fade-in animation-order-2">
-                    <img src="{{ url('assets/frontend/images/our-supported-company/company-logo-2.svg') }}" alt="Reeni - Personal Portfolio HTML Template">
+            @empty
+            <!-- Empty State Design -->
+            <div class="col-12 text-center py-5">
+                <div class="p-5 border rounded bg-light">
+                    <i class="fa-solid fa-handshake display-4 text-muted mb-3"></i>
+                    <h4 class="text-muted">No supported companies available at the moment.</h4>
+                    <p>We are currently updating our partner list. Please check back later.</p>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
-                <div class="support-company-logo tmp-scroll-trigger tmp-fade-in animation-order-3">
-                    <img src="{{ url('assets/frontend/images/our-supported-company/company-logo-3.svg') }}" alt="Reeni - Personal Portfolio HTML Template">
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
-                <div class="support-company-logo tmp-scroll-trigger tmp-fade-in animation-order-4">
-                    <img src="{{ url('assets/frontend/images/our-supported-company/company-logo-4.svg') }}" alt="Reeni - Personal Portfolio HTML Template">
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
-                <div class="support-company-logo tmp-scroll-trigger tmp-fade-in animation-order-5">
-                    <img src="{{ url('assets/frontend/images/our-supported-company/company-logo-5.svg') }}" alt="Reeni - Personal Portfolio HTML Template">
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
-                <div class="support-company-logo tmp-scroll-trigger tmp-fade-in animation-order-6">
-                    <img src="{{ url('assets/frontend/images/our-supported-company/company-logo-6.svg') }}" alt="Reeni - Personal Portfolio HTML Template">
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
-                <div class="support-company-logo tmp-scroll-trigger tmp-fade-in animation-order-7">
-                    <img src="{{ url('assets/frontend/images/our-supported-company/company-logo-7.svg') }}" alt="Reeni - Personal Portfolio HTML Template">
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
-                <div class="support-company-logo tmp-scroll-trigger tmp-fade-in animation-order-8">
-                    <img src="{{ url('assets/frontend/images/our-supported-company/company-logo-8.svg') }}" alt="Reeni - Personal Portfolio HTML Template">
-                </div>
-            </div>
+            @endforelse
+
         </div>
     </div>
 </div>

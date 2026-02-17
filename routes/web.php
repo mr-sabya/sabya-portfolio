@@ -13,6 +13,9 @@ Route::get('/services', [App\Http\Controllers\Frontend\ServiceController::class,
 // project page
 Route::get('/projects', [App\Http\Controllers\Frontend\ProjectController::class, 'index'])->name('project');
 
+// project details page
+Route::get('/projects/{slug}', [App\Http\Controllers\Frontend\ProjectController::class, 'show'])->name('projects.show');
+
 // blog page
 Route::get('/blog', [App\Http\Controllers\Frontend\BlogController::class, 'blog'])->name('blog');
 

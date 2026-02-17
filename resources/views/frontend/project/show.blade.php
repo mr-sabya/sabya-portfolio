@@ -9,6 +9,6 @@
 
 
 <!-- tmp Latest Portfolio Start -->
-<livewire:frontend.project.index />
+<livewire:frontend.project.show projectId="{{ $project->id }}" />
 <!-- tmp Latest Portfolio end -->
 @endsection
