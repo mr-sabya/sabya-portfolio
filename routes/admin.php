@@ -74,4 +74,8 @@ Route::middleware('auth', 'is_admin')->group(function () {
         // Edit Pricing Plan
         Route::get('/edit/{id}', [App\Http\Controllers\Admin\PricingController::class, 'edit'])->name('edit');
     });
+
+    // testimonial single index route
+    Route::get('/testimonials', [App\Http\Controllers\Admin\TestimonialController::class, 'index'])->name('testimonial.index');
+
 });

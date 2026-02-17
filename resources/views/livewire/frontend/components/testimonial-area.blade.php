@@ -8,67 +8,42 @@
             <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2">Enhancing Collaboration <br> between Remote</h2>
         </div>
         <div class="row g-5">
-            <!-- Start Single Testimonial  -->
-
             <div class="col-lg-12">
                 <div class="swiper-testimonials-area-wrapper-card">
                     <div class="swiper swiper-testimonials-2">
                         <div class="swiper-wrapper">
+
+                            @forelse($testimonials as $testimonial)
                             <div class="swiper-slide">
-                                <div class="testimonial-card tmponhover style-2 tmp-scroll-trigger animation-order-1">
+                                <div class="testimonial-card tmponhover style-2 tmp-scroll-trigger animation-order-{{ $loop->iteration }}">
                                     <div class="content">
                                         <div class="testimonital-icon">
-                                            <img src="{{ url('assets/frontend/images/icons/quote.svg') }}" alt="testimonial-icon">
+                                            <img src="{{ asset('assets/frontend/images/icons/quote.svg') }}" alt="testimonial-icon">
                                         </div>
-                                        <h2 class="text-doc">A personal portfolio is a curated collection of an individual's professional work, showcasing their skilA personal portfolio is a curated collection of an individual's professional work, showcasing their skills, </h2>
-                                        <h3 class="card-title">Cameron Williamson</h3>
-                                        <p class="card-para">Ui/Ux Designer</p>
+                                        <!-- Review Text -->
+                                        <h2 class="text-doc">
+                                            {{ $testimonial->comment }}
+                                        </h2>
+                                        <!-- Client Name -->
+                                        <h3 class="card-title">{{ $testimonial->client_name }}</h3>
+                                        <!-- Designation -->
+                                        <p class="card-para">{{ $testimonial->client_designation }}</p>
                                     </div>
                                 </div>
                             </div>
+                            @empty
+                            <!-- Empty State Design -->
                             <div class="swiper-slide">
-                                <div class="testimonial-card tmponhover style-2 tmp-scroll-trigger animation-order-2">
-                                    <div class="content">
-                                        <div class="testimonital-icon">
-                                            <img src="{{ url('assets/frontend/images/icons/quote.svg') }}" alt="testimonial-icon">
-                                        </div>
-                                        <h2 class="text-doc">A personal portfolio is a curated collection of an individual's professional work, showcasing their skilA personal portfolio is a curated collection of an individual's professional work, showcasing their skills, </h2>
-                                        <h3 class="card-title">Leslie Alexander</h3>
-                                        <p class="card-para">Ui/Ux Designer</p>
-                                    </div>
+                                <div class="testimonial-card text-center py-5">
+                                    <h4 class="text-muted">No testimonials yet.</h4>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="testimonial-card tmponhover style-2 tmp-scroll-trigger animation-order-1">
-                                    <div class="content">
-                                        <div class="testimonital-icon">
-                                            <img src="{{ url('assets/frontend/images/icons/quote.svg') }}" alt="testimonial-icon">
-                                        </div>
-                                        <h2 class="text-doc">A personal portfolio is a curated collection of an individual's professional work, showcasing their skilA personal portfolio is a curated collection of an individual's professional work, showcasing their skills, </h2>
-                                        <h3 class="card-title">Cameron Williamson</h3>
-                                        <p class="card-para">Ui/Ux Designer</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="testimonial-card tmponhover style-2 tmp-scroll-trigger animation-order-2">
-                                    <div class="content">
-                                        <div class="testimonital-icon">
-                                            <img src="{{ url('assets/frontend/images/icons/quote.svg') }}" alt="testimonial-icon">
-                                        </div>
-                                        <h2 class="text-doc">A personal portfolio is a curated collection of an individual's professional work, showcasing their skilA personal portfolio is a curated collection of an individual's professional work, showcasing their skills, </h2>
-                                        <h3 class="card-title">Leslie Alexander</h3>
-                                        <p class="card-para">Ui/Ux Designer</p>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforelse
+
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- End Single Testimonial  -->
-
         </div>
     </div>
 </section>

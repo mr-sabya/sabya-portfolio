@@ -130,6 +130,15 @@
                     </a>
                 </li>
 
+                <!-- testimonial -->
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ Route::is('admin.testimonial.*') ? 'active' : '' }}" href="{{ route('admin.testimonial.index') }}" wire:navigate>
+                        <i class="bi bi-chat-quote"></i> <span data-key="t-testimonials">Testimonials</span>
+                    </a>
+                </li>
+
+                <!--  -->
+
 
             </ul>
         </div>
