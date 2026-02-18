@@ -32,10 +32,6 @@
 <livewire:frontend.home.portfolio />
 
 
-<!-- pricing plan -->
-<livewire:frontend.components.pricing-plan className="tmp-section-gapTop" />
-<!-- pricing plan -->
-
 <!-- testimonial area -->
 <livewire:frontend.components.testimonial-area />
 <!-- testimonial area -->

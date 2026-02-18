@@ -21,10 +21,10 @@
                             <span><img src="{{ url('assets/frontend/images/custom-line/custom-line.png') }}" alt="line"></span>
                         </h2>
                         <p class="edu-para tmp-scroll-trigger tmp-fade-in animation-order-2">
-                            {{ $about->description_one }}
+                            {!! $about->description_one !!}
                         </p>
                         <p class="edu-para tmp-scroll-trigger tmp-fade-in animation-order-3">
-                            {{ $about->description_two }}
+                            {!! $about->description_two !!}
                         </p>
                     </div>
                 </div>
