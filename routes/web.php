@@ -25,6 +25,9 @@ Route::get('/blog/{slug}', [App\Http\Controllers\Frontend\BlogController::class,
 // contact page
 Route::get('/contact', [App\Http\Controllers\Frontend\ContactController::class, 'index'])->name('contact');
 
+// pricing page
+Route::get('/pricing', [App\Http\Controllers\Frontend\PricingController::class, 'index'])->name('pricing');
+
 
 // login
 Route::get('/login', [App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');

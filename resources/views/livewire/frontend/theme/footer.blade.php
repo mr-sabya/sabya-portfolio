@@ -4,11 +4,7 @@
             <div class="row g-5">
                 <div class="col-lg-5 col-md-6">
                     <div class="single-footer-wrapper border-right mr--20">
-                        <div class="logo">
-                            <a href="index.html">
-                                <img src="{{ url('assets/frontend/images/logo/white-logo-reeni-2.png') }}" alt="Reeni - Personal Portfolio HTML Template for developers and freelancers">
-                            </a>
-                        </div>
+                        <livewire:frontend.theme.logo />
                         <p class="description"><span>Get Ready</span> To <br> Create Great</p>
                         <form action="#" class="newsletter-form-1 mt--40">
                             <input type="email" placeholder="Email Adress">
@@ -21,19 +17,19 @@
                         <h5 class="ft-title">Quick Link</h5>
                         <ul class="ft-link tmp-link-animation">
                             <li>
-                                <a href="about.html">About Me</a>
+                                <a href="{{ route('about') }}" wire:navigate>About Me</a>
                             </li>
                             <li>
-                                <a href="team.html">Service</a>
+                                <a href="{{ route('service') }}" wire:navigate>Service</a>
                             </li>
                             <li>
-                                <a href="service.html">Contact Us</a>
+                                <a href="{{ route('contact') }}" wire:navigate>Contact Us</a>
                             </li>
                             <li>
-                                <a href="blog.html">Blog Post</a>
+                                <a href="{{ route('blog') }}" wire:navigate>Blog Post</a>
                             </li>
                             <li>
-                                <a href="contact.html">Pricing</a>
+                                <a href="{{ route('pricing') }}" wire:navigate>Pricing</a>
                             </li>
                         </ul>
                     </div>

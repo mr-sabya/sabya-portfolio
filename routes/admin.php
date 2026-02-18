@@ -78,4 +78,7 @@ Route::middleware('auth', 'is_admin')->group(function () {
     // testimonial single index route
     Route::get('/testimonials', [App\Http\Controllers\Admin\TestimonialController::class, 'index'])->name('testimonial.index');
 
+    // about page
+    Route::get('/about', [App\Http\Controllers\Admin\AboutController::class, 'index'])->name('about.index');
+
 });

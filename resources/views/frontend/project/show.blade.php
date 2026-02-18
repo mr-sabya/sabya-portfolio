@@ -1,5 +1,7 @@
 @extends('frontend.layouts.app')
 
+@section('title', 'Project Details')
+
 @section('content')
 <!-- breadcrumb -->
 <livewire:frontend.components.breadcrumb

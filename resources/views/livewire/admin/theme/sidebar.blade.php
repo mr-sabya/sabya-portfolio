@@ -137,7 +137,12 @@
                     </a>
                 </li>
 
-                <!--  -->
+                <!-- about -->
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ Route::is('admin.about.*') ? 'active' : '' }}" href="{{ route('admin.about.index') }}" wire:navigate>
+                        <i class="bi bi-person"></i> <span data-key="t-about">About</span>
+                    </a>
+                </li>
 
 
             </ul>

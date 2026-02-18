@@ -66,7 +66,7 @@
             @foreach($services->split(2) as $chunk)
             <div class="col-lg-6 col-sm-6">
                 @foreach($chunk as $key => $service)
-                <a href="{{ $service->details_url ?? 'service-details.html' }}"
+                <div
                     class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-{{ $loop->iteration }}">
                     <h2 class="service-card-num">
                         {{--
@@ -80,7 +80,7 @@
                     <p class="service-para">
                         {{ $service->description ?? 'No description available.' }}
                     </p>
-                </a>
+</div>
                 @endforeach
             </div>
             @endforeach

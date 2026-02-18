@@ -13,7 +13,7 @@
                 <div class="blog-card tmp-hover-link tmp-scroll-trigger tmp-fade-in animation-order-{{ $loop->iteration }}">
                     <div class="img-box">
                         {{-- Route assumes you have a named route: blog.details --}}
-                        <a href="{{ route('blog.details', $post->slug) }}">
+                        <a href="{{ route('blog.show', $post->slug) }}" wire:navigate>
                             @if($post->thumbnail)
                             <img class="img-primary hidden-on-mobile" src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}">
                             <img class="img-secondary" src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}">
@@ -34,11 +34,11 @@
                     </div>
                     <div class="blog-content-wrap">
                         <h3 class="blog-title v2">
-                            <a class="link" href="{{ route('blog.details', $post->slug) }}">
+                            <a class="link" href="{{ route('blog.show', $post->slug) }}" wire:navigate>
                                 {{ Str::limit($post->title, 60) }}
                             </a>
                         </h3>
-                        <a href="{{ route('blog.details', $post->slug) }}" class="read-more-btn v2">
+                        <a href="{{ route('blog.show', $post->slug) }}" class="read-more-btn v2" wire:navigate>
                             Read More
                             <span class="read-more-icon"><i class="fa-solid fa-angle-right"></i></span>
                         </a>

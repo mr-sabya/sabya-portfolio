@@ -15,7 +15,7 @@
                         <i class="{{ $service->icon_class }}"></i>
                     </div>
                     <h4 class="service-title">
-                        <a href="{{ $service->details_url ?? '#' }}">{{ $service->title }}</a>
+                        {{ $service->title }}
                     </h4>
                     {{-- Displays the short description/stat (e.g., "120 Projects") --}}
                     <p class="service-para">{{ $service->short_description }}</p>
