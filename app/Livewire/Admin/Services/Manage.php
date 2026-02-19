@@ -62,7 +62,7 @@ class Manage extends Component
         $this->isEditMode = true;
 
         $service = Service::findOrFail($id);
-        
+
         $this->service_id        = $service->id;
         $this->title             = $service->title;
         $this->icon_class        = $service->icon_class;
@@ -102,6 +102,9 @@ class Manage extends Component
             'type' => 'success'
         ]);
 
+        // --- ADD THIS LINE ---
+        $this->dispatch('close-modal');
+
         // 4. Reset Form (This clears the modal inputs)
         $this->resetInputFields();
     }
@@ -129,7 +132,7 @@ class Manage extends Component
 
     public function render()
     {
-        $services = Service::where('title', 'like', '%'.$this->search.'%')
+        $services = Service::where('title', 'like', '%' . $this->search . '%')
             ->orderBy($this->sortField, $this->sortDirection)
             ->paginate($this->perPage);
 

@@ -181,3 +181,18 @@
         </div>
     </div>
 </div>
+
+<script>
+    window.addEventListener('close-modal', event => {
+        // 1. Get the modal element by its ID
+        const modalElement = document.getElementById('serviceModal');
+
+        // 2. Get the Bootstrap modal instance
+        const modalInstance = bootstrap.Modal.getInstance(modalElement);
+
+        // 3. Hide the modal
+        if (modalInstance) {
+            modalInstance.hide();
+        }
+    });
+</script>
