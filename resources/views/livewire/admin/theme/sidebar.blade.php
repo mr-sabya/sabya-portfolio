@@ -78,6 +78,21 @@
                                 <a href="{{ route('admin.website.partner.index') }}" class="nav-link {{ Route::is('admin.website.partner.index') ? 'active' : '' }}" data-key="t-partner" wire:navigate> Partner </a>
                             </li>
 
+                            <!-- about page -->
+                            <li class="nav-item">
+                                <a href="{{ route('admin.website.about.index') }}" class="nav-link {{ Route::is('admin.website.about.index') ? 'active' : '' }}" data-key="t-about" wire:navigate> About Page </a>
+                            </li>
+
+                            <!-- counter section -->
+                            <li class="nav-item">
+                                <a href="{{ route('admin.website.counter-section.index') }}" class="nav-link {{ Route::is('admin.website.counter-section.index') ? 'active' : '' }}" data-key="t-counter-section" wire:navigate> Counter Section </a>
+                            </li>
+
+                            <!-- counters management -->
+                            <li class="nav-item">
+                                <a href="{{ route('admin.website.counter.index') }}" class="nav-link {{ Route::is('admin.website.counter.*') ? 'active' : '' }}" data-key="t-counters" wire:navigate> Counters </a>
+                            </li>
+
                             
                         </ul>
                     </div>
@@ -136,14 +151,6 @@
                         <i class="bi bi-chat-quote"></i> <span data-key="t-testimonials">Testimonials</span>
                     </a>
                 </li>
-
-                <!-- about -->
-                <li class="nav-item">
-                    <a class="nav-link menu-link {{ Route::is('admin.about.*') ? 'active' : '' }}" href="{{ route('admin.about.index') }}" wire:navigate>
-                        <i class="bi bi-person"></i> <span data-key="t-about">About</span>
-                    </a>
-                </li>
-
 
             </ul>
         </div>

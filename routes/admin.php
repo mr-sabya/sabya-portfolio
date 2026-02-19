@@ -31,6 +31,15 @@ Route::middleware('auth', 'is_admin')->group(function () {
 
         // Partner Management
         Route::get('/partners', [App\Http\Controllers\Admin\PartnerController::class, 'index'])->name('partner.index');
+
+        // about page
+        Route::get('/about', [App\Http\Controllers\Admin\AboutController::class, 'index'])->name('about.index');
+
+        // counter section
+        Route::get('/counter-section', [App\Http\Controllers\Admin\CounterController::class, 'counterSection'])->name('counter-section.index');
+
+        // counters management
+        Route::get('/counters', [App\Http\Controllers\Admin\CounterController::class, 'index'])->name('counter.index');
     });
 
     // Project group
@@ -77,8 +86,4 @@ Route::middleware('auth', 'is_admin')->group(function () {
 
     // testimonial single index route
     Route::get('/testimonials', [App\Http\Controllers\Admin\TestimonialController::class, 'index'])->name('testimonial.index');
-
-    // about page
-    Route::get('/about', [App\Http\Controllers\Admin\AboutController::class, 'index'])->name('about.index');
-
 });
