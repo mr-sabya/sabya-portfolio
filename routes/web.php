@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home');
@@ -31,3 +32,16 @@ Route::get('/pricing', [App\Http\Controllers\Frontend\PricingController::class, 
 
 // login
 Route::get('/login', [App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
+
+
+
+Route::get('/run-migrations', function () {
+    $exitCode = Artisan::call('migrate');
+    return 'Migrations ran successfully!';
+});
+
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+    return "Storage link created successfully!";
+});
