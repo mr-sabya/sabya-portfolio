@@ -14,37 +14,11 @@
 
             <div class="row">
                 @forelse($projects as $project)
-                <div class="col-lg-6 col-md-6">
-                    <div class="latest-portfolio-card tmp-hover-link tmp-scroll-trigger tmp-fade-in animation-order-1">
-                        <div class="portfoli-card-img">
-                            <div class="img-box">
-                                {{-- Assuming you have a route named project.details --}}
-                                <a href="{{ route('projects.show', $project->slug) }}" wire:navigate>
-                                    @if($project->thumbnail)
-                                    <img class="img-primary hidden-on-mobile" src="{{ asset('storage/' . $project->thumbnail) }}" alt="{{ $project->title }}">
-                                    <img class="img-secondary" src="{{ asset('storage/' . $project->thumbnail) }}" alt="{{ $project->title }}">
-                                    @else
-                                    <img class="img-primary" src="{{ url('assets/frontend/images/latest-portfolio/portfoli-img-1.jpg') }}" alt="Placeholder">
-                                    @endif
-                                </a>
-                            </div>
-                        </div>
-                        <div class="portfolio-card-content-wrap">
-                            <div class="content-left">
-                                <h3 class="portfolio-card-title">
-                                    <a class="link" href="{{ route('projects.show', $project->slug) }}" wire:navigate>{{ $project->title }}</a>
-                                </h3>
-                                {{-- Display Client Name as the sub-text --}}
-                                <p class="portfoli-card-para">{{ $project->client->name ?? 'Development' }}</p>
-                            </div>
-                            <a href="{{ route('projects.show', $project->slug) }}" wire:navigate class="tmp-arrow-icon-btn">
-                                <div class="btn-inner">
-                                    <i class="tmp-icon fa-solid fa-arrow-up-right"></i>
-                                    <i class="tmp-icon-bottom fa-solid fa-arrow-up-right"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                <div class="col-lg-6">
+                    <livewire:frontend.component.portfolio-card
+                        :id="$project->id"
+                        :index="$loop->iteration"
+                        :key="'project-'.$project->id" />
                 </div>
                 @empty
                 <div class="col-12 text-center">
