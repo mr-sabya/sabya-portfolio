@@ -2,7 +2,7 @@
 <section class="counter-area">
     <div class="container">
         <div class="row g-5">
-            
+
             {{-- LEFT SIDE: Experience Section --}}
             <div class="col-12 col-lg-6 col-xl-6 col-xxl-6">
                 <div class="year-of-expariance-wrapper bg-blur-style-one tmp-scroll-trigger tmp-fade-in animation-order-1">
@@ -22,7 +22,7 @@
             <div class="col-12 col-lg-6 col-xl-6 col-xxl-6">
                 <div class="counter-area-right-content">
                     <div class="row g-5">
-                        
+
                         @foreach($counters as $counter)
                         <div class="col-lg-6 col-sm-6 col-12">
                             <div class="counter-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-{{ $loop->iteration }}">
@@ -36,7 +36,6 @@
                             </div>
                         </div>
                         @endforeach
-
                     </div>
                 </div>
             </div>

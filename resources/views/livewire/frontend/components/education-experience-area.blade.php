@@ -52,7 +52,7 @@
                             <p class="ex-subtitle">Academic Qualification</p>
                             <h2 class="ex-name">{{ $edu->designation }}</h2>
                             <h3 class="ex-title">{{ $edu->duration }}</h3>
-                            <p class="ex-para">{{ $edu->description }}</p>
+                            <p class="ex-para">{!! $edu->description !!}</p>
                         </div>
                         @endforeach
 
