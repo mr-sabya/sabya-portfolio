@@ -96,6 +96,7 @@ class Manage extends Component
         ]);
 
         $this->resetInputFields();
+        $this->dispatch('close-modal');
     }
 
     public function delete($id)

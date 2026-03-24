@@ -68,7 +68,7 @@ class Manage extends Component
     public function store()
     {
         $this->validate([
-            'number'     => 'required|string|max:50',
+            'number'     => 'required|max:50',
             'suffix'     => 'nullable|string|max:10',
             'title'      => 'required|string|max:255',
             'sort_order' => 'integer',

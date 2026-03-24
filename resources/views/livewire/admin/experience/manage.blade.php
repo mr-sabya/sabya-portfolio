@@ -158,3 +158,30 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('livewire:init', () => {
+
+        Livewire.on('close-modal', (event) => {
+            // 1. Get the modal element
+            const modalElement = document.getElementById('experienceModal');
+
+            // 2. Use Bootstrap's built-in method to get or create the instance
+            const modal = bootstrap.Modal.getOrCreateInstance(modalElement);
+
+            // 3. Hide the modal
+            modal.hide();
+
+            // 4. Manual cleanup (Required if the backdrop gets stuck)
+            // This removes the "modal-open" class from body and the dark overlay
+            setTimeout(() => {
+                document.body.classList.remove('modal-open');
+                document.body.style.overflow = '';
+                document.body.style.paddingRight = '';
+                const backdrop = document.querySelector('.modal-backdrop');
+                if (backdrop) backdrop.remove();
+            }, 100);
+        });
+
+    });
+</script>
