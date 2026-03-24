@@ -51,7 +51,7 @@ class Manage extends Component
     {
         $this->validate([
             'name'         => 'required|string|max:255',
-            'price'        => 'required|numeric',
+            'price'        => 'required|string',
             'currency'     => 'required|string|max:10',
             'period_label' => 'required|string',
             'features'     => 'required|array|min:1',

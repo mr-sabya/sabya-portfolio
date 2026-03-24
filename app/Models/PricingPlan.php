@@ -23,6 +23,5 @@ class PricingPlan extends Model
     protected $casts = [
         'features' => 'array',
         'is_featured' => 'boolean',
-        'price' => 'decimal:2'
     ];
 }

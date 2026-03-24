@@ -38,7 +38,7 @@
                             @endif
                         </td>
                         <td class="text-end">
-                            <a href="{{ route('admin.pricing.manage', $plan->id) }}" wire:navigate class="btn btn-sm btn-soft-primary"><i class="ri-edit-line"></i></a>
+                            <a href="{{ route('admin.pricing.edit', $plan->id) }}" wire:navigate class="btn btn-sm btn-soft-primary"><i class="ri-edit-line"></i></a>
                             <button wire:confirm="Delete this plan?" wire:click="delete({{ $plan->id }})" class="btn btn-sm btn-soft-danger"><i class="ri-delete-bin-line"></i></button>
                         </td>
                     </tr>
