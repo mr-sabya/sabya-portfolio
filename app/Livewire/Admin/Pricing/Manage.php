@@ -25,7 +25,7 @@ class Manage extends Component
             $this->period_label = $plan->period_label;
             $this->period_range = $plan->period_range;
             $this->is_featured  = $plan->is_featured;
-            $this->status       = $plan->status;
+            $this->status       = $plan->status ? true : false;
             $this->button_text  = $plan->button_text;
             $this->button_url   = $plan->button_url;
             $this->sort_order   = $plan->sort_order;
@@ -51,7 +51,7 @@ class Manage extends Component
     {
         $this->validate([
             'name'         => 'required|string|max:255',
-            'price'        => 'required|string',
+            'price'        => 'required|string|max:255',
             'currency'     => 'required|string|max:10',
             'period_label' => 'required|string',
             'features'     => 'required|array|min:1',

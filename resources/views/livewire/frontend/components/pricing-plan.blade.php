@@ -10,12 +10,12 @@
         <div class="row align-items-center g-5 justify-content-center">
             @forelse($plans as $plan)
             <div class="col-lg-4 col-md-6">
-                <div class="price-plan-card tmponhover blur-style-two tmp-scroll-trigger tmp-fade-in 
+                <div class="price-plan-card text-center tmponhover blur-style-two tmp-scroll-trigger tmp-fade-in 
                             animation-order-{{ $loop->iteration }} 
                             {{ $plan->is_featured ? 'active' : '' }}">
 
                     <span class="price-sub-title">{{ $plan->name }}</span>
-                    <h3 class="main-price">{{ $plan->currency }} {{ number_format($plan->price, 2) }}</h3>
+                    <h3 class="main-price" style="font-size: 30px;">{{ $plan->currency }} {{ $plan->price }}</h3>
 
                     {{-- Period logic: Shows "Per Month" and optional "From-To" range --}}
                     <p class="per-month">
