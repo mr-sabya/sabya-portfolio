@@ -137,6 +137,14 @@
                     </a>
                 </li>
 
+                <!-- CATEGORY 8: SETTINGS -->
+                <li class="menu-title"><span>Settings</span></li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.settings.index') }}" class="nav-link menu-link {{ Route::is('admin.settings.index') ? 'active' : '' }}" wire:navigate>
+                        <i class="bi bi-gear-fill"></i> <span>Site Settings</span>
+                    </a>
+                </li>
+
             </ul>
         </div>
     </div>

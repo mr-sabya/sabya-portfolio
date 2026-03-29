@@ -75,4 +75,7 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
         Route::get('/counter-header', [App\Http\Controllers\Admin\CounterController::class, 'counterSection'])->name('counter-section.index');
         Route::get('/counters', [App\Http\Controllers\Admin\CounterController::class, 'index'])->name('counter.index');
     });
+
+    // settings
+    Route::get('/settings', [App\Http\Controllers\Admin\SettingController::class, 'index'])->name('settings.index');
 });
