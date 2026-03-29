@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\SettingType;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 
 class Setting extends Model
@@ -14,6 +15,16 @@ class Setting extends Model
         'options' => 'array',
         'is_private' => 'boolean',
     ];
+
+    /**
+     * Clear cache whenever a setting is saved or deleted
+     */
+    protected static function booted()
+    {
+        static::updated(fn() => Cache::forget('global_settings'));
+        static::created(fn() => Cache::forget('global_settings'));
+        static::deleted(fn() => Cache::forget('global_settings'));
+    }
 
     public static function get($slug, $default = null)
     {
@@ -34,5 +45,15 @@ class Setting extends Model
             return '_blank';
         }
         return '_self';
+    }
+
+    /**
+     * Optimized Global Fetch
+     */
+    public static function getAllSettings()
+    {
+        return Cache::rememberForever('global_settings', function () {
+            return self::pluck('value', 'slug')->toArray();
+        });
     }
 }

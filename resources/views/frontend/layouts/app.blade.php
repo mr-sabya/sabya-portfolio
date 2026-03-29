@@ -9,9 +9,9 @@
     <meta name="description" content="Reeni is a modern personal portfolio template for designers, developers, content writer, cleaner, programmer, fashion designer, model, Influencer and freelancers. Fully responsive, SEO-friendly, Bootstrap and easy to customize.">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/frontend/images/favicon.svg') }}">
     @if(Route::currentRouteName() == 'home')
-    <title>Sabya Roy - Professional Web Developer</title>
+    <title>{{ setting('website_name', 'Sabya Roy') }} - {{ setting('tagline', 'Professional Web Developer') }}</title>
     @else
-    <title>@yield('title') - Sabya Roy | Professional Web Developer</title>
+    <title>@yield('title') - {{ setting('website_name', 'Sabya Roy') }} | {{ setting('tagline', 'Professional Web Developer') }}</title>
     @endif
     <!-- Bootstrap min css -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/vendor/fontawesome.css') }}">
