@@ -12,4 +12,10 @@ class TestimonialController extends Controller
     {
         return view('admin.testimonials.index');
     }
+
+    // testimonial-header
+    public function testimonialHeader()
+    {
+        return view('admin.testimonial-header.index');
+    }
 }

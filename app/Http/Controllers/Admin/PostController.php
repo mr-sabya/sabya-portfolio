@@ -26,4 +26,10 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         return view('admin.posts.edit', compact('post'));
     }
+
+    // blog-header
+    public function blogHeader()
+    {
+        return view('admin.blog-header.index');
+    }
 }

@@ -26,4 +26,10 @@ class ProjectController extends Controller
         $project = Project::findOrFail($id);
         return view('admin.projects.edit', ['project' => $project]);
     }
+
+    // portfolio-header
+    public function portfolioHeader()
+    {
+        return view('admin.portfolio-header.index');
+    }
 }
