@@ -72,7 +72,7 @@
 
     {{-- Bootstrap Modal --}}
     <div class="modal fade" id="counterModal" tabindex="-1" aria-hidden="true" wire:ignore.self>
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{ $isEditMode ? 'Edit Counter' : 'Add New Counter' }}</h5>

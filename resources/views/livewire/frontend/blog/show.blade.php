@@ -230,6 +230,7 @@
     </div>
 </div>
 
+@push('scripts')
 <script>
     document.addEventListener('livewire:init', () => {
         Livewire.on('copy-to-clipboard', (event) => {
@@ -256,3 +257,4 @@
         });
     });
 </script>
+@endpush

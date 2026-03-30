@@ -17,7 +17,7 @@
                         </h4>
 
                         <div class="button-area-banner-three tmp-scroll-trigger tmp-fade-in animation-order-3">
-                            <a class="tmp-btn hover-icon-reverse radius-round" href="{{ $hero->button_url ?? 'portfolio-details.html' }}">
+                            <a class="tmp-btn hover-icon-reverse radius-round" href="{!! $hero->button_url ?? route('project') !!}" wire:navigate>
                                 <span class="icon-reverse-wrapper">
                                     <span class="btn-text">{{ $hero->button_text ?? 'View Portfolio' }}</span>
                                     <span class="btn-icon"><i class="fa-sharp fa-regular fa-arrow-right"></i></span>
@@ -59,8 +59,8 @@
                     alt="banner-img" style="width: 90%;">
             </div>
 
-            <h2 class="texts-one up-down-2">{{ $hero->bg_text_1 ?? 'WEB DESIGN' }}</h2>
-            <h2 class="texts-two up-down">{{ $hero->bg_text_2 ?? 'WEB DESIGN' }}</h2>
+            <h2 class="texts-one up-down-2">{{ $hero->bg_text_1 ?? 'WEB DEVELOPER' }}</h2>
+            <h2 class="texts-two up-down">{{ $hero->bg_text_2 ?? 'WEB DEVELOPER' }}</h2>
         </div>
     </div>
 </div>

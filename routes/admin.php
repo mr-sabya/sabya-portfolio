@@ -35,7 +35,13 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
         Route::get('/service-header', [App\Http\Controllers\Admin\ServiceController::class, 'serviceSection'])->name('service-section.index');
         Route::get('/services', [App\Http\Controllers\Admin\ServiceController::class, 'index'])->name('service.index');
         Route::get('/partners', [App\Http\Controllers\Admin\PartnerController::class, 'index'])->name('partner.index');
-        Route::get('/pricing', [App\Http\Controllers\Admin\PricingController::class, 'index'])->name('pricing.index'); // Fixed name for sidebar
+
+        // route group for pricing plans
+        Route::prefix('pricing')->name('pricing.')->group(function () {
+            Route::get('/', [App\Http\Controllers\Admin\PricingController::class, 'index'])->name('index');
+            Route::get('/create', [App\Http\Controllers\Admin\PricingController::class, 'create'])->name('create');
+            Route::get('/edit/{id}', [App\Http\Controllers\Admin\PricingController::class, 'edit'])->name('edit');
+        });
     });
 
     // ==========================================
