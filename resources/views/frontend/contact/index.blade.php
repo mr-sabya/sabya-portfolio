@@ -19,8 +19,7 @@
                             <i class="fa-solid fa-location-dot"></i>
                         </div>
                         <h3 class="title">Address</h3>
-                        <p class="para">Dhaka 102, utl 1216, road 45</p>
-                        <p class="para">house of street</p>
+                        <p class="para">{!! setting('address', 'Khulna-9100, Bangladesh') !!}</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -29,11 +28,11 @@
                             <i class="fa-solid fa-envelope"></i>
                         </div>
                         <h3 class="title">E-mail</h3>
-                        <a href="mailto:themespark11@gmail.com">
-                            <p class="para">hasan@yourmail.com</p>
+                        <a href="mailto:{{ setting('email', 'sabya.citik@gmail.com') }}">
+                            <p class="para">{{ setting('email', 'sabya.citik@gmail.com') }}</p>
                         </a>
-                        <a href="mailto:themespark11@gmail.com">
-                            <p class="para">themespark11@gmail.com</p>
+                        <a href="mailto:{{ setting('secondary_email', 'themespark11@gmail.com') }}">
+                            <p class="para">{{ setting('secondary_email', 'themespark11@gmail.com') }}</p>
                         </a>
                     </div>
                 </div>
@@ -43,8 +42,8 @@
                             <i class="fa-solid fa-phone"></i>
                         </div>
                         <h3 class="title">Call Me</h3>
-                        <p class="para">0000 - 000 - 000 00</p>
-                        <p class="para">+1234 - 000</p>
+                        <p class="para">{{ setting('phone', '+8801929190241') }}</p>
+                        <p class="para">{{ setting('secondary_phone', '+1234 - 000') }}</p>
                     </div>
                 </div>
             </div>

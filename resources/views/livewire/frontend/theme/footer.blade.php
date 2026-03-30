@@ -38,17 +38,15 @@
                     <div class="single-footer-wrapper contact-wrap">
                         <h5 class="ft-title">Contact </h5>
                         <ul class="ft-link tmp-link-animation">
-                            <li><span class="ft-icon"><i class="fa-solid fa-envelope"></i></span><a href="#">nafiz125@gmail.com</a></li>
-                            <li><span class="ft-icon"><i class="fa-solid fa-location-dot"></i></span>3891
-                                Ranchview Dr. Richardson</li>
-                            <li><span class="ft-icon"><i class="fa-solid fa-phone"></i></span><a href="#">01245789321</a></li>
+                            <li>
+                                <span class="ft-icon"><i class="fa-solid fa-envelope"></i></span>
+                                <a href="mailto:{{ setting('email', 'sabya.citik@gmail.com') }}">{{ setting('email', 'sabya.citik@gmail.com') }}</a>
+                            </li>
+                            <li><span class="ft-icon"><i class="fa-solid fa-location-dot"></i></span>{{ setting('footer_address', 'Khulna-9100, Bangladesh') }}</li>
+                            <li><span class="ft-icon"><i class="fa-solid fa-phone"></i></span><a href="tel:{{ setting('phone', '+8801929190241') }}">{{ setting('phone', '+8801929190241') }}</a></li>
                         </ul>
-                        <div class="social-link footer">
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                        </div>
+                         <!-- Static Social Links (Hardcoded) -->
+                        <livewire:frontend.theme.social-links className="footer" />
                     </div>
                 </div>
             </div>

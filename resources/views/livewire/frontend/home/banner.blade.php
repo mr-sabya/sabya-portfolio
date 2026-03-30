@@ -41,12 +41,7 @@
                         <div class="find-me-on mt--40 tmp-scroll-trigger tmp-fade-in animation-order-2">
                             <h2 class="find-me-on-title">Find me on</h2>
                             <!-- Static Social Links (Hardcoded) -->
-                            <div class="social-link banner">
-                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                            </div>
+                            <livewire:frontend.theme.social-links className="banner" />
                         </div>
                     </div>
                 </div>

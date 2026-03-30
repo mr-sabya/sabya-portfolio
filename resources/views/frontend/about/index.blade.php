@@ -26,9 +26,10 @@
 <livewire:frontend.components.counter-area />
 <!-- counter area -->
 
-<!-- education experience area -->
-<livewire:frontend.components.education-experience-area />
-<!-- education experience area -->
-
+<div class="tmp-section-gapBottom">
+    <!-- education experience area -->
+    <livewire:frontend.components.education-experience-area />
+    <!-- education experience area -->
+</div>
 
 @endsection
