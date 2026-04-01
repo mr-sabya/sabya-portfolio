@@ -85,15 +85,25 @@
                 <!-- CATEGORY 4: BUSINESS -->
                 <li class="menu-title"><span>Business</span></li>
                 <!-- service section header -->
-                <li class="nav-item">
-                    <a href="{{ route('admin.website.service-section.index') }}" class="nav-link {{ Route::is('admin.website.service-section.index') ? 'active' : '' }}" wire:navigate>Service Header</a>
-                </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('admin.website.service.index') }}" class="nav-link menu-link {{ Route::is('admin.website.service.index') ? 'active' : '' }}" wire:navigate>
+                    <a class="nav-link menu-link {{ Route::is('admin.website.service.index') || Route::is('admin.website.service-section.index') ? 'active' : 'collapsed' }}" href="#serviceManage" data-bs-toggle="collapse" role="button">
                         <i class="bi bi-gear-wide-connected"></i> <span>Services</span>
                     </a>
+                    <div class="collapse menu-dropdown {{ Route::is('admin.website.service.index') || Route::is('admin.website.service-section.index') ? 'show' : '' }}" id="serviceManage">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('admin.website.service-section.index') }}" class="nav-link {{ Route::is('admin.website.service-section.index') ? 'active' : '' }}" wire:navigate>Service Header</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.website.service.index') }}" class="nav-link menu-link {{ Route::is('admin.website.service.index') ? 'active' : '' }}" wire:navigate>
+                                    <span>Services</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
+
                 <li class="nav-item">
                     <a href="{{ route('admin.website.pricing.index') }}" class="nav-link menu-link {{ Route::is('admin.website.pricing.index') ? 'active' : '' }}" wire:navigate>
                         <i class="bi bi-tags-fill"></i> <span>Pricing Plans</span>
