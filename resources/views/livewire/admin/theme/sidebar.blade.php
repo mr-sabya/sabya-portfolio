@@ -84,6 +84,11 @@
 
                 <!-- CATEGORY 4: BUSINESS -->
                 <li class="menu-title"><span>Business</span></li>
+                <!-- service section header -->
+                <li class="nav-item">
+                    <a href="{{ route('admin.website.service-section.index') }}" class="nav-link {{ Route::is('admin.website.service-section.index') ? 'active' : '' }}" wire:navigate>Service Header</a>
+                </li>
+
                 <li class="nav-item">
                     <a href="{{ route('admin.website.service.index') }}" class="nav-link menu-link {{ Route::is('admin.website.service.index') ? 'active' : '' }}" wire:navigate>
                         <i class="bi bi-gear-wide-connected"></i> <span>Services</span>
