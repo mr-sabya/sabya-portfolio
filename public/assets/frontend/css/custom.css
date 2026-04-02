@@ -94,3 +94,94 @@
     color: #fff;
     font-weight: 600;
 }
+
+.support-company-logo a {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px 20px 20px 50px;
+    /* Extra padding on the left for the stub */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* The Perforated Line */
+.support-company-logo a::before {
+    content: "";
+    position: absolute;
+    left: 35px;
+    top: 10%;
+    height: 80%;
+    border-left: 2px dashed #ddd;
+}
+
+/* The Stub "Hole" */
+.support-company-logo a::after {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background: #000;
+    /* Match your section background color */
+    border-radius: 50%;
+}
+
+.support-company-logo a:hover {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+    margin-left: 5px;
+    /* Interactive "tear" feel */
+}
+
+
+/* Code block container styling */
+.ql-code-block-container {
+    position: relative;
+    background: #1e1e1e;
+    color: #f8f8f2;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    font-family: "Fira Code", monospace;
+    overflow-x: auto;
+}
+
+/* Copy button */
+.ql-code-copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #ff2d20;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.3s ease;
+    width: 46px;
+}
+
+/* Show button on hover */
+.ql-code-block-container:hover .ql-code-copy-btn {
+    opacity: 1;
+}
+
+/* Button hover */
+.ql-code-copy-btn:hover {
+    background: #e0261b;
+}
+
+.post-dynamic-content h2 {
+    font-size: 24px;
+}
+
+.post-dynamic-content h3 {
+    font-size: 20px;
+}

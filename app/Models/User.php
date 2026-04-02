@@ -21,6 +21,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'profile_photo', // Added
+        'bio',           // Added
+        'phone',         // Added
+        'address',       // Added
+        'is_admin',      // Added
     ];
 
     /**
@@ -43,6 +48,13 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_admin' => 'boolean',
         ];
+    }
+
+    // blog posts relationship
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }

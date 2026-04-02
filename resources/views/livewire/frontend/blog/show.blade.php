@@ -213,14 +213,16 @@
                             <div class="about-me-details">
                                 <div class="about-me-details-head">
                                     <div class="about-me-img">
-                                        <img src="{{ url('assets/frontend/images/blog/about-me-user-img.png') }}" alt="author">
+                                        <img src="{{ $post->author->profile_photo 
+            ? asset('storage/' . $post->author->profile_photo) 
+            : 'https://ui-avatars.com/api/?name=' . urlencode($post->author->name) . '&color=7F9CF5&background=EBF4FF' }}" alt="author">
                                     </div>
                                     <div class="about-me-right-content">
                                         <h3 class="title">{{ $post->author->name ?? 'Admin' }}</h3>
                                         <p class="para">Content Creator</p>
                                     </div>
                                 </div>
-                                <p class="about-me-para">Exploring the intersection of technology and creativity through detailed articles and guides.</p>
+                                <p class="about-me-para">{{ $post->author->bio ?? 'No bio available.' }}</p>
                             </div>
                         </div>
                     </div>
