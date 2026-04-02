@@ -213,16 +213,16 @@
                             <div class="about-me-details">
                                 <div class="about-me-details-head">
                                     <div class="about-me-img">
-                                        <img src="{{ $post->author->profile_photo 
-            ? asset('storage/' . $post->author->profile_photo) 
-            : 'https://ui-avatars.com/api/?name=' . urlencode($post->author->name) . '&color=7F9CF5&background=EBF4FF' }}" alt="author">
+                                        <img src="{{ $post->user->profile_photo 
+            ? asset('storage/' . $post->user->profile_photo) 
+            : 'https://ui-avatars.com/api/?name=' . urlencode($post->user->name) . '&color=7F9CF5&background=EBF4FF' }}" alt="author">
                                     </div>
                                     <div class="about-me-right-content">
-                                        <h3 class="title">{{ $post->author->name ?? 'Admin' }}</h3>
+                                        <h3 class="title">{{ $post->user->name ?? 'Admin' }}</h3>
                                         <p class="para">Content Creator</p>
                                     </div>
                                 </div>
-                                <p class="about-me-para">{{ $post->author->bio ?? 'No bio available.' }}</p>
+                                <p class="about-me-para">{{ $post->user->bio ?? 'No bio available.' }}</p>
                             </div>
                         </div>
                     </div>
