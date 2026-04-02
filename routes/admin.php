@@ -85,6 +85,13 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
     // settings
     Route::get('/settings', [App\Http\Controllers\Admin\SettingController::class, 'index'])->name('settings.index');
 
-    // profile management
-    Route::get('/profile', [App\Http\Controllers\Admin\ProfileController::class, 'manage'])->name('profile.manage');
+
+    // make group for profile management
+    Route::prefix('profile')->name('profile.')->group(function () {
+        // profile management
+        Route::get('/', [App\Http\Controllers\Admin\ProfileController::class, 'manage'])->name('manage');
+
+        // update password
+        Route::get('/update-password', [App\Http\Controllers\Admin\ProfileController::class, 'updatePassword'])->name('update-password');
+    });
 });

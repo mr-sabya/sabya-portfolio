@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="card shadow-sm">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Manage Admin Profile</h5>
+                <div class="card-header bg-primary ">
+                    <h5 class="mb-0 text-white">Manage Admin Profile</h5>
                 </div>
                 <div class="card-body">
 

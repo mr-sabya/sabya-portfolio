@@ -12,4 +12,10 @@ class ProfileController extends Controller
     {
         return view('admin.profile.manage');
     }
+
+    // update-password
+    public function updatePassword()
+    {
+        return view('admin.profile.update-password');
+    }
 }
